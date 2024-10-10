@@ -1,14 +1,15 @@
 package it.lessons.payments;
 
 public class BankTransfer extends PaymentMethod{
-	public BankTransfer(double amount) {
-		super(amount);
-	}
-	
+
 	@Override
-	public void pay() {
-		double total = amount + applyFee();
-		System.out.println("Hai pagato un importo totale di " + total + "€");
+	public void pay(double amount) {
+	    System.out.printf("Pagamento di %.2f€ effettuato con Bonifico Bancario.\n", amount);
 	}
+
+    @Override
+    public double applyFee(double amount) {
+        return amount;  // Nessuna commissione
+    }
 
 }

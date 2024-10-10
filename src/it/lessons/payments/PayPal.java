@@ -2,18 +2,13 @@ package it.lessons.payments;
 
 public class PayPal extends PaymentMethod{
 	
-	public PayPal (double amount) {
-		super(amount);
-	}
-	
 	@Override
-	public double applyFee() {
-		return amount * 0.02;
+	public void pay(double amount) {
+	    System.out.printf("Pagamento di %.2f€ effettuato con Paypal.\n", amount);
 	}
-	
-	@Override
-	public void pay() {
-		double total = amount + applyFee();
-		System.out.println("Hai pagato un importo totale di " + total + "€");
-	}
+
+	    @Override
+	    public double applyFee(double amount) {
+	        return amount * 1.02;  // Commissione del 2%
+	    }
 }
