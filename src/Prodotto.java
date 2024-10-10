@@ -36,21 +36,21 @@ Prodotto nella stesura delle classi che gestiscono i vari sotto tipi di prodotto
 public class Prodotto {
 
 		private int codice;
-		protected String nome;
-		//private String descrizione;
-		protected String marca;
-		protected double prezzo;
-		protected double iva;
+		private String nome;
+		private String descrizione;
+		private String marca;
+		private double prezzo;
+		private double iva;
 		
-		Prodotto(String nome, String marca, double prezzo, double iva){
-			setCodice();
-			setIva(iva);
-			setNome(nome);
-			setMarca(marca);
-			setPrezzo(prezzo);
+		public Prodotto(String nome, String marca, double prezzo, double iva){
+			this.nome = nome;
+	        this.marca = marca;
+	        this.prezzo = prezzo;
+	        this.iva = iva;
 			
 		}
-		
+
+
 		private void setCodice() {
 			Random ran = new Random();
 			codice = ran.nextInt(Integer.MAX_VALUE);
@@ -79,17 +79,6 @@ public class Prodotto {
 		public String getMarca() {
 			return marca;
 		}
-		/*Prodotto(){
-			setCodice();
-			this.iva = 1.22;
-		}
-		
-		Prodotto(String nome, String descrizione, double prezzo){
-			this();
-			this.nome = nome;
-			this.descrizione = descrizione;
-			this.prezzo = prezzo;
-		}*/
 	
 		public void setPrezzo (double prezzoBase) {
 	       this.prezzo = prezzo;
@@ -111,30 +100,27 @@ public class Prodotto {
 			return iva;
 		}
 		
-		public String getPrezzoIva() {
+		/*public double getPrezzoIva() {
 			return String.format("%.2f", prezzo + (prezzo * iva));
-		}
+		}*/
 		
-		/*double calcolaPrezzoConIVA() {
-	        double importoIVA = this.prezzo * (this.iva / 100);
-	        return this.prezzo + importoIVA;
-	    }*/
+		double getPrezzoIva() {
+	        double importoIVA = this.prezzo * this.iva;
+	        return (this.prezzo + importoIVA);
+	    }
 		
 		public String getNomeEsteso () {
 			return codice + " - " + nome;
 		}
 		
+		
 		@Override
 		public String toString() {
-			return "Prodotto: " + nome + ", Prezzo: " + prezzo + " EUR";
-		}
-		
-		/*@Override
-		public String toString() {
 			return String.format("Il prodotto %s, della marca %s, costa €%s", 
-					getNomeEsteso(), getMarca(), getPrezzoIva());
+					getNome(), getMarca(), getPrezzoIva());
 					
 		}
+		
 		public String getDescrizione () {
 			return this.descrizione;
 		}
@@ -143,7 +129,6 @@ public class Prodotto {
 		public void setDescrizione(String descrizione) {
 			this.descrizione = descrizione;
 		}
-		*/
 	}
 
 
