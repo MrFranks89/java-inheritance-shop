@@ -1,37 +1,4 @@
-
-
 import java.util.Random;
-
-/*Un prodotto è caratterizzato da:
-- codice (numero intero)
-- nome
-- descrizione
-- prezzo
-- iva
-Usate opportunamente attributi ed altri metodi per fare in modo che:
-- ci sia un metodo che valorizzi il codice prodotto con un numero random V
-- il prodotto esponga un metodo per avere il prezzo base V
-- il prodotto esponga un metodo per avere il prezzo comprensivo di iva V
-- il prodotto esponga un metodo per avere il nome esteso, ottenuto concatenando codice-nome V */ 
-
-//Nello stesso package aggiungete una classe Main 
-//con metodo main nella quale 
-//testate tutte le funzionalità della classe Prodotto.
-
-/*
- * Usate opportunamente i livelli di accesso (public, private), 
- * i costruttori, i metodi getter e setter ed eventuali 
- * altri metodi di “utilità” per fare in modo che:
-- il codice prodotto sia accessibile solo in lettura
-- gli altri attributi siano accessibili sia in lettura che in scrittura
-Lo shop gestisce diversi tipi di prodotto:
-- Smarphone, caratterizzati anche dal codice IMEI e dalla quantità di memoria
-- Televisori, caratterizzati dalle dimensioni e dalla proprietà di essere 
-smart oppure no
-- Cuffie, caratterizzate dal colore e se sono wireless o cablate
-Utilizzate l’ereditarietà per riutilizzare il codice di 
-Prodotto nella stesura delle classi che gestiscono i vari sotto tipi di prodotto.
-*/
 
 public class Prodotto {
 
@@ -106,7 +73,7 @@ public class Prodotto {
 		
 		double getPrezzoIva() {
 	        double importoIVA = this.prezzo * this.iva;
-	        return (this.prezzo + importoIVA);
+	        return Math.round((this.prezzo + importoIVA) * 100.0) / 100.0;
 	    }
 		
 		public String getNomeEsteso () {

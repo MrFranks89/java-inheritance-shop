@@ -36,7 +36,7 @@ public class Carrello {
 			sommaProdotto += prezzoProdotto;
 		
 		}
-		System.out.printf("Somma totale dei prodotti (con IVA): %.2f€\n", sommaProdotto);
+		System.out.printf("Somma totale dei prodotti (IVA inclusa): %.2f€\n", sommaProdotto);
 		
 	}
 	
