@@ -44,7 +44,7 @@ public class Carrello {
 	
 	// Metodo principale per gestire l'interazione con l'utente
     public static void main(String[] args) {
-        // Creiamo un carrello senza limiti di capacità
+        // Carrello senza limiti di capacità
         Carrello carrello = new Carrello();
         Scanner scanner = new Scanner(System.in);
         boolean continua = true;  // Variabile per controllare il ciclo
@@ -53,23 +53,20 @@ public class Carrello {
         while (continua) {
             System.out.println("Che prodotto vuoi aggiungere al carrello? (1: Smartphone, 2: Cuffie, 3: Televisore, 0: Esci)");
             int scelta = scanner.nextInt();
-            scanner.nextLine();  // Consuma il newline
+            scanner.nextLine();
 
             switch (scelta) {
                 case 0:
-                    // L'utente ha scelto di terminare
                     continua = false;
                     break;
 
                 case 1:
-                    // Aggiungiamo uno smartphone
                     ProdottoSmartphone smartphone = new ProdottoSmartphone("Redmi Note 13", "Xiaomi", 699.99, 0.22);
                     carrello.aggiungiProdotto(smartphone);
                     System.out.println("Smartphone aggiunto al carrello.");
                     break;
 
                 case 2:
-                    // Aggiungiamo delle cuffie
                     Cuffie cuffie = new Cuffie("Quiet Comfort", "Bose", 199.99, 0.22, "Nere", true);
                     carrello.aggiungiProdotto(cuffie);
                     System.out.println("Cuffie aggiunte al carrello.");
@@ -83,17 +80,15 @@ public class Carrello {
                 	
 
                 default:
-                    // Scelta non valida
                     System.out.println("Scelta non valida, riprova.");
                     break;
             }
         }
 
-        // Mostriamo i prodotti aggiunti nel carrello
         carrello.mostraProdotti();
         carrello.sommaTotale();
 
-        scanner.close(); // Chiudiamo lo scanner alla fine
+        scanner.close(); 
     }
 	
 }
